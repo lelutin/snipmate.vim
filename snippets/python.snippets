@@ -93,3 +93,24 @@ snippet pdb
 snippet pp
 	import pprint
 	pprint.pprint(${1:x})${2}
+# Unit testing with mox
+snippet test
+	def test_${1:something}(self):
+		"""${2:Group}: ${3:Test X with Y}"""
+		${4:obj} = self.wrap_subject(${5:class_to_mock}, "${6:test_subject_method}")
+		${10:$8 = "something"}
+		self.m.ReplayAll()
+		self.assert${7:Equal}(
+			${8:test_data},
+			${9:$4.$6()}
+		)
+		self.m.VerifyAll()
+snippet mock
+	self.m.CreateMock(${1:Class})${2}
+snippet mockany
+	self.m.CreateMockAnything()
+snippet mockcall
+	${1:mock_object}.${2:method}(${3})\
+		.AndReturn(${4:value})${5}
+snippet mockstub
+	self.m.StubOutWithMock(${1:object}, "${2:method_name}")${3}
