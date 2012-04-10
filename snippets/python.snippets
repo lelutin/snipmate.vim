@@ -86,3 +86,10 @@ snippet ifmain
 # __magic__
 snippet _
 	__${1:init}__${2}
+# debugging
+snippet pdb
+	import pdb
+	pdb.set_trace()
+snippet pp
+	import pprint
+	pprint.pprint(${1:x})${2}
